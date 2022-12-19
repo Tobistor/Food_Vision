@@ -19,12 +19,14 @@ st.title('Food Vision')
 image_file = st.file_uploader('Select an image:')
 
 # Load and preprocess the input image
-if image_file is not None:
-    image = Image.open(image_file)
-    image = image.resize((224, 224))  # resize the image to the model's input size
-    image_array = np.array(image)  # convert the image to a numpy array
-    image_array = image_array / 255.0  # normalize the pixel values
-    image_array = np.expand_dims(image_array, axis=0)  # add a batch dimension
+# Load and preprocess the input image
+for image in image_file:
+    if image_file is not None:
+        image = Image.open(image_file)
+        image = image.resize((224, 224))  # resize the image to the model's input size
+        image_array = np.array(image)  # convert the image to a numpy array
+        image_array = image_array / 255.0  # normalize the pixel values
+        image_array = np.expand_dims(image_array, axis=0)  # add a batch dimension
 
     # Use the model to make a prediction
     prediction = model.predict(image_array)
