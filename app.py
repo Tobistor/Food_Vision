@@ -8,10 +8,10 @@ import h5py
 import time
 
 # Load the model from the .h5 file
-model = h5py.File('my_model.h5', 'r')
+model = h5py.File('food_vision.h5', 'r')
 
 # Create a Streamlit user interface
-st.title('Image Prediction')
+st.title('Food Vision')
 
 # Get the input image from the user
 image_file = st.file_uploader('Select an image:')
