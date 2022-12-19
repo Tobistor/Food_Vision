@@ -6,9 +6,11 @@ from skimage.transform import resize
 import numpy as np
 import h5py
 import time
+from keras.models import load_model
 
 # Load the model from the .h5 file
-model = h5py.File('food_vision.h5', 'r')
+#model = h5py.File('food_vision.h5', 'r')
+model = load_model('food_vision.h5')
 
 # Create a Streamlit user interface
 st.title('Food Vision')
